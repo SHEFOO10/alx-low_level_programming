@@ -11,9 +11,7 @@
 
 int main(void)
 {
-/**
- * this the main function
- * */	
+	/* this the main function*/	
 	int n;
 
 	srand(time(0));
