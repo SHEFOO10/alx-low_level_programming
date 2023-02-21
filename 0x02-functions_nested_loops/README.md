@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+this program prints _putchar
+=======
 # 0x02. C - Functions, nested loops
 
 ## Resources
@@ -203,3 +206,4 @@
 - Compile this way: `gcc -Wall -pedantic -Werror -Wextra -std=gnu89 104-fibonacci.c -o 104-fibonacci`
 
 </details>
+>>>>>>> cf6089a6e40abf5bbf41a56aa54e0cbc5c05ac4a
