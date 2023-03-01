@@ -2,9 +2,9 @@
  * reset_to_98 - function that changes value of pointer
  *
  * Description: it changes value of variable with it's address
- * 
+ *
  * @n: address of the variable i want to change it
- * 
+ *
  * Return: void
  */
 
