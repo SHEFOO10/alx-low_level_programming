@@ -25,7 +25,8 @@ char *str_concat(char *s1, char *s2)
 	while (s2[len2])
 		len2++;
 
-	result = malloc(sizeof(char) * (len1 + len2));
+	int result_len = len1 + len2;
+	result = malloc(sizeof(char) * result_len);
 	if (result == NULL)
 		printf("can't allocate memory");
 
