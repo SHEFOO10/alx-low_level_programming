@@ -16,7 +16,7 @@ char *str_concat(char *s1, char *s2)
 {
 	char *result;
 
-	int len1 = 0, len2 = 0;
+	int len1 = 0, len2 = 0, i = 0;
 	
 
 	while (s1[len1])
@@ -28,7 +28,7 @@ char *str_concat(char *s1, char *s2)
 	if (result == NULL)
 		printf("can't allocate memory");
 
-	for (int i = 0; i <= (len1 + len2); i++)
+	for (; i <= (len1 + len2); i++)
 	{
 		if ( i >= (len1 - 1))
 			result[i] = s2[i - len1];
