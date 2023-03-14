@@ -18,14 +18,11 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	while (*str != '\0')
+	
+	for(int i = 0; i < sizeof(*str);i++)
 	{
-		*dup = *str;
-		dup++;
-		str++;
+		dup[i] = str[i];
 	}
-	*dup = '\0';
-	dup = &dup[0];
 
 	return (dup);
 }
