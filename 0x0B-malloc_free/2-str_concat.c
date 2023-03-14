@@ -32,9 +32,13 @@ char *str_concat(char *s1, char *s2)
 	for (; i <= (len1 + len2); i++)
 	{
 		if ( i >= (len1 - 1))
+		{
 			result[i] = s2[i - len1];
-		result[i] = s1[i];
-
+		}
+		else
+		{
+			result[i] = s1[i];
+		}
 	}	
 
 	return (result);
