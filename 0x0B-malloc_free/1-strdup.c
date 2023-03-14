@@ -2,9 +2,9 @@
 #include <stddef.h>
 
 /**
- * *_strdup(char *str) - allocate new space and assign string to it
+ * _strdup(char *str) - allocate new space and assign string to it
  *
- * @*str: string
+ * @str: string
  *
  * Return: NULL if str = NULL or return pointer point duplicated string
  */
