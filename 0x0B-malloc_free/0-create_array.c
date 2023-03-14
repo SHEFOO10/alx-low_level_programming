@@ -3,13 +3,12 @@
 #include <stdlib.h>
 
 /**
+ * *create_array - creates an array of chars,
+ * and initializes it with a specific char
+ * @size: size of the array to create
+ * @c: char to initialize the array c
  *
- * *create_array - creates an nadklfjslkjn
- *
- * @size: unsigned int
- * @c : char
- *
- * Return: Null if the size equal 0 or return pointer or return NULL
+ * Return: pointer to the array (Success), NULL (Error)
  *
  */
 
