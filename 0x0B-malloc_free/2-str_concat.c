@@ -14,18 +14,27 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
+	char *result;
 
-	while (*s1 != '\0')
-		s1++;
-	while (*s2 != '\0')
+	int len1 = 0, len2 = 0, result_len = 0;
+	
+
+	while (s1[len1])
+		len1++;
+	while (s2[len2])
+		len2++;
+
+	result = malloc(sizeof(char) * (len1 + len2));
+	if (result == NULL)
+		printf("can't allocate memory");
+
+	for (int i = 0; i <= (len1 + len2); i++)
 	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-	}
-	*s1 = '\0';
+		if ( i >= (len1 - 1))
+			result[i] = s2[i - len1];
+		result[i] = s1[i];
 
-	return (s1);
+	}	
+
+	return (result);
 }
