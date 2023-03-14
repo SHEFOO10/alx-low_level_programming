@@ -18,7 +18,7 @@ char *_strdup(char *str)
 		return (NULL);	
 	}
 
-	while(*str != '\0')
+	while (*str != '\0')
 	{
 		*dup = *str;
 		dup++;
@@ -26,6 +26,6 @@ char *_strdup(char *str)
 	}
 	*dup = '\0';
 	dup = &dup[0];
-	
-	return dup;
+
+	return (dup);
 }
