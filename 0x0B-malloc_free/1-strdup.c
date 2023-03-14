@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
- * _strdup(char *str) - allocate new space and assign string to it
+ * _strdup - allocate new space and assign string to it
  *
  * @str: string
  *
@@ -15,7 +15,7 @@ char *_strdup(char *str)
 
 	if (dup == NULL)
 	{
-		return (NULL);	
+		return (NULL);
 	}
 
 	while (*str != '\0')
