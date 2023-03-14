@@ -19,7 +19,7 @@ char *_strdup(char *str)
 	}
 
 	
-	for(int i = 0; i < sizeof(*str);i++)
+	for(int i = 0; i < (int)sizeof(*str);i++)
 	{
 		dup[i] = str[i];
 	}
