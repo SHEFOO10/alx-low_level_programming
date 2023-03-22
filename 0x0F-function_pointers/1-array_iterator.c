@@ -15,11 +15,11 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	int n = 0;
 
-	if( !array || !size || !action())
+	if (!array || !size || !action())
 		return (0);
 
 
-	while(n != size)
+	while (n != size)
 	{
 		(*action)(array[n]);
 		n++;
