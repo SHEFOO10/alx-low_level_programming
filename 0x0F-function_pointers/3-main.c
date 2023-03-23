@@ -1,5 +1,6 @@
 #include "3-calc.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - the entire program
@@ -13,6 +14,7 @@
 int main(int argc, char *argv[])
 {
 	int arg1, arg2, result;
+	char o;
 	int (*func)(int, int);
 
 	if (argc != 4)
@@ -21,7 +23,7 @@ int main(int argc, char *argv[])
 	arg1 = atoi(argv[1]);
 	arg2 = atoi(argv[3]);
 
-	func = get_op_function(*argv[2]);
+	func = int (*get_op_func(argv[2]))(int, int);
 
 	if (!func)
 	{
