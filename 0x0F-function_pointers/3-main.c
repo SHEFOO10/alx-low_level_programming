@@ -7,7 +7,7 @@
  * @argc: arguments count
  * @argv: arguments vector
  *
- * Return (0) on Success , (-1) on Failure
+ * Return: (0) on Success , (-1) on Failure
  */
 
 int main(int argc, char *argv[])
