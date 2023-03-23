@@ -1,16 +1,12 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - the entire program
+ * main - program that perfroms simple operations
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * @argc: arguments count
- * @argv: arguments vector
- *
- * Return: (0) on Success , (-1) on Failure
+ * Return: Always 0 (Success)
  */
-
 int main(int argc, char *argv[])
 {
 	int arg1, arg2, result;
@@ -18,7 +14,10 @@ int main(int argc, char *argv[])
 	int (*func)(int, int);
 
 	if (argc != 4)
-		return (98);
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
 	arg1 = atoi(argv[1]);
 	arg2 = atoi(argv[3]);
@@ -28,7 +27,7 @@ int main(int argc, char *argv[])
 	if (!func)
 	{
 		printf("Error\n");
-		return (99);
+		exit(99);
 	}
 
 	o = *argv[2];
@@ -36,11 +35,12 @@ int main(int argc, char *argv[])
 	if ((o == '/' || o == '%') && arg2 == 0)
 	{
 		printf("Error\n");
-		return (100);
+		exit(100);
 	}
+
 	result = func(arg1, arg2);
+
 	printf("%d\n", result);
+
 	return (0);
-
-
 }
