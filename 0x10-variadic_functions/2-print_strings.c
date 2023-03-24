@@ -30,6 +30,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		printf("%s %s", va_arg(str_list, char *), separator);
 	}
 	printf("\n");
+	va_end(str_list);
 }
 
 
