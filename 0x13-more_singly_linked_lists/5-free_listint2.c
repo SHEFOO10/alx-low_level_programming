@@ -21,5 +21,5 @@ void free_listint2(listint_t **head)
 		free(*head);
 		*head = temp;
 	}
-
+	*head = NULL; // on line 22 on the last iteration , this line is just for making sure the *head is NULL.
 }
