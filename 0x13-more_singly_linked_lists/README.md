@@ -16,3 +16,6 @@ a function that adds a new node at the end of a listint_t list.
 5. Free
 a function that frees a listint_t list and set the head to NULL.
 ##################
+6. Pop
+ a function that deletes the head node of a listint_t linked list, and returns the head node’s data (n)
+##################
