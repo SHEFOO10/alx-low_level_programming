@@ -12,4 +12,7 @@ a function that adds a new node at the end of a listint_t list.
 ##################
 4. Free list
  a function that frees a listint_t list.
-
+##################
+5. Free
+a function that frees a listint_t list and set the head to NULL.
+##################
