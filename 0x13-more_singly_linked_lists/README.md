@@ -19,3 +19,8 @@ a function that frees a listint_t list and set the head to NULL.
 6. Pop
  a function that deletes the head node of a listint_t linked list, and returns the head node’s data (n)
 ##################
+7. Get node at index
+ a function that returns the nth node of a listint_t linked list.
+####################
+8. Sum list
+a function that returns the sum of all the data (n) of a listint_t linked list.
