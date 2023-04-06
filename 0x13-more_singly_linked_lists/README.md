@@ -24,3 +24,10 @@ a function that frees a listint_t list and set the head to NULL.
 ####################
 8. Sum list
 a function that returns the sum of all the data (n) of a listint_t linked list.
+#########################
+9. Insert
+ a function that inserts a new node at a given position.
+#########################
+10. Delete at index
+a function that deletes the node at index index of a listint_t linked list.
+
