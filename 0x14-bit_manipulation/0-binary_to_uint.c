@@ -30,7 +30,6 @@ unsigned int binary_to_uint(const char *b)
 			position++;
 		default:
 			return (0);
-			break;
 		}
 	}
 	return (d_number);
