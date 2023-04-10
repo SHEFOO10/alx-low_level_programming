@@ -15,6 +15,8 @@ unsigned int binary_to_uint(const char *b)
 
 	unsigned int d_number = 0;
 
+	if (b == NULL)
+		return (0);
 	while (len--)
 	{
 		switch (b[len])
