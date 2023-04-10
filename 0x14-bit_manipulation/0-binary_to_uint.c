@@ -1,5 +1,13 @@
 #include "main.h"
 
+
+/**
+ * binary_to_uint - converts a binary number to an unsigned int.
+ *
+ * @b: binary number
+ *
+ * Return: unsigned number on success
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	int len = strlen(b);
@@ -9,7 +17,7 @@ unsigned int binary_to_uint(const char *b)
 
 	while (len--)
 	{
-		switch(b[len])
+		switch (b[len])
 		{
 			case '1':
 				d_number += pow(2, position);
