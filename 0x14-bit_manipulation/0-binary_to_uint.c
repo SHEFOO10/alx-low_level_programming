@@ -13,6 +13,9 @@ unsigned int binary_to_unit(const char *b)
 	int position = 0;
 	unsigned int d_number = 0;
 
+	if (b == NULL)
+		return (0);
+
 	while (len--)
 	{
 		switch (b[len])
