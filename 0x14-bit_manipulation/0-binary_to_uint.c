@@ -29,6 +29,7 @@ unsigned int binary_to_uint(const char *b)
 		case '0':
 			position++;
 		default:
+			return (0);
 			break;
 		}
 	}
