@@ -7,7 +7,8 @@
  *
  * Return: the converted number if success, on fail return 0.
 */
-unsigned int binary_to_unit(const char *b)
+
+unsigned int binary_to_uint(const char *b)
 {
 	int len = strlen(b);
 	int position = 0;
