@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * binary_to_unit - convert binary number to intger
+ *binary_to_unit - convert binary number to intger
  *
  *@b: the binary number
  *
- * Return: the converted number if success, on fail return 0.
+ *Return: the converted number if success, on fail return 0.
 */
 
 unsigned int binary_to_uint(const char *b)
