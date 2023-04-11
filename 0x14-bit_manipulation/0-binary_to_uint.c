@@ -12,7 +12,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	int len;
-	unsigned int d_number = 0, pow;
+	unsigned int d_number = 0, bin_power;
 
 	if (b == NULL)
 		return (0);
@@ -22,13 +22,10 @@ unsigned int binary_to_uint(const char *b)
 		if (b[len] != '0' && b[len] != '1')
 			return (0);
 	}
-	for (pow = 1; len >= 0; len--, pow *= 2)
-	{
-		if (b[len] == '1')
-		{
 
-			d_number += pow;
-		}
-	}
+	for (pow = 1; len >= 1; len--, bin_power *= 2)
+		if (b[len - 1] == '1')
+			d_number += bin_power;
+	
 	return (d_number);
 }
