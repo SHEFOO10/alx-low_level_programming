@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * binary_to_uint - convert binary number to intger
@@ -22,9 +23,9 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		len++;
 	}
-	for (pow = 1; len >= 0; i++, len--, pow *= 2)
+	for (pow = 1; len >= 0; len--, pow *= 2)
 	{
-		if (b[i] == '1')
+		if (b[len] == '1')
 		{
 
 			d_number += pow;
