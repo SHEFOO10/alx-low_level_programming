@@ -26,6 +26,6 @@ unsigned int binary_to_uint(const char *b)
 	for (pow = 1; len >= 1; len--, bin_power *= 2)
 		if (b[len - 1] == '1')
 			d_number += bin_power;
-	
+
 	return (d_number);
 }
