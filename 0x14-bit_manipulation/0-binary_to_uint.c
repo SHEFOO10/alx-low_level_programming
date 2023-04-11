@@ -23,7 +23,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 	}
 
-	for (pow = 1; len >= 1; len--, bin_power *= 2)
+	for (bin_power = 1; len >= 1; len--, bin_power *= 2)
 		if (b[len - 1] == '1')
 			d_number += bin_power;
 
