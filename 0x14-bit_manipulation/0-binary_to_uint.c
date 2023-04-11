@@ -10,26 +10,24 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	int len = strlen(b);
-	int position = 0;
-	unsigned int d_number = 0;
+	int len;
+	unsigned int d_number = 0, pow;
 
 	if (b == NULL)
 		return (0);
 
-	while (len--)
+	while (b[len])
 	{
-		switch (b[len])
-		{
-		case '1':
-			d_number += pow(2, position);
-			position++;
-			break;
-
-		case '0':
-			position++;
-		default:
+		if (b[len] != '0' && b[len] != '1')
 			return (0);
+		len++;
+	}
+	for (pow = 1; len >= 0; i++, len--, pow *= 2)
+	{
+		if (b[i] == '1')
+		{
+
+			d_number += pow;
 		}
 	}
 	return (d_number);
