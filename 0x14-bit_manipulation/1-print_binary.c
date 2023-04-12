@@ -10,15 +10,20 @@
 
 void print_binary(unsigned long int n)
 {
-	short int mask = 1 << 7;
+	int first_one = 0;
+	short int mask = 1 << forward;
 
 	while (mask > 0)
 	{
 		if (n & mask)
+		{
 			_putchar('1');
-		else
+			first_one = 1;
+		}
+		else if (first_one)
+		{
 			_putchar('0');
-
+		}
 		mask >>= 1;
 	}
 
