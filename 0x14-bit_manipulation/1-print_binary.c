@@ -10,21 +10,9 @@
 
 void print_binary(unsigned long int n)
 {
-	int first_one = 0;
-	short int mask = 1 << 14;
+	if (n > 1)
+		print_binary(n >> 1);
 
-	while (mask > 0)
-	{
-		if (n & mask)
-		{
-			_putchar('1');
-			first_one = 1;
-		}
-		else if (first_one)
-		{
-			_putchar('0');
-		}
-		mask >>= 1;
-	}
+	_putchar((n & 1) + '0');
 
 }
