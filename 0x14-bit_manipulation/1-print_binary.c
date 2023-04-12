@@ -11,7 +11,7 @@
 void print_binary(unsigned long int n)
 {
 	int first_one = 0;
-	short int mask = 1 << forward;
+	short int mask = 1 << 7;
 
 	while (mask > 0)
 	{
