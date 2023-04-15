@@ -11,7 +11,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int content_len = 0, o_file, w_file;
+	int content_len = i, o_file, w_file;
 
 	if (filename == NULL)
 		return (-1);
@@ -21,8 +21,9 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (text_content != NULL)
 		for (content_len = 0; text_content[content_len];)
 			content_len++;
-	else
 		w_file = write(o_file, text_content, content_len);
+	else
+		return (0);
 
 	if (o_file == -1 || w_file == -1)
 		return (-1);
