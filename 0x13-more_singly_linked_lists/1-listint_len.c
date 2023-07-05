@@ -18,7 +18,7 @@ size_t listint_len(const listint_t *h)
 			length++;
 		h = h->next;
 	}
-	length++; /* for the last element */
+	/* relised that i count last element twice */
 
 	return (length);
 }
