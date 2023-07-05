@@ -10,14 +10,18 @@
 
 size_t listint_len(const listint_t *h)
 {
-	int length = 1;
+	size_t length = 1;
+
+	if (h == NULL)
+		return (0);
 
 	while (h->next)
 	{
-		length++;
+		if (h->n != '\0')
+			length++;
 		h = h->next;
 	}
-	/* relised that i count last element twice */
+
 
 	return (length);
 }
