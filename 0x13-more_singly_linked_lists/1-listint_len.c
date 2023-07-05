@@ -14,7 +14,8 @@ size_t listint_len(const listint_t *h)
 
 	while (h->next)
 	{
-		length++;
+		if (h->n != '\0')
+			length++;
 		h = h->next;
 	}
 	length++; /* for the last element */
