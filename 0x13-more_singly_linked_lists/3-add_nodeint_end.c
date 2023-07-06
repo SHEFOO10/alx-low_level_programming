@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * add_node_end - add node to the end of linked list.
+ * add_nodeint_end - add node to the end of linked list.
  *
  * @head: head of linked list
  * @n : value of n on node
@@ -23,7 +23,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 	if (temp == NULL)
 		*head = new_node;
-	else	
+	else
 	{
 		while (temp->next != NULL)
 			temp = temp->next;
