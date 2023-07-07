@@ -9,7 +9,7 @@
 
 void print_binary(unsigned long int n)
 {
-	int mask = n;
+	unsigned int mask = n;
 
 	if (n == 0)
 		_putchar('0');
