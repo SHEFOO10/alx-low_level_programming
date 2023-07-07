@@ -9,7 +9,6 @@
 
 void print_binary(unsigned long int n)
 {
-	int number = n;
 	int mask = n;
 
 	if (n == 0)
