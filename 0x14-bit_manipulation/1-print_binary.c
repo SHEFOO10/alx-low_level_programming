@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_binary = print binary on the console.
+ * print_binary - print binary number on the console.
  *
  * @n: decimal number to be printed on binary.
  *
