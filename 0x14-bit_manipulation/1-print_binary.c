@@ -31,7 +31,6 @@ int get_length(unsigned long int n)
 
 void print_binary(unsigned long int n)
 {
-	unsigned int mask = n;
 	int length;
 	unsigned long int mask = 1;
 
