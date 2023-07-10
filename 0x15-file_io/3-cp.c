@@ -49,7 +49,7 @@ void c_fd(int fd)
 int main(int argc, char *argv[])
 {
 	char *buffer;
-	int from_f, to_f, r_from;
+	int from_f, to_f, r_from, w_to;
 
 	if (argc != 3)
 	{
@@ -75,7 +75,12 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	do {
-		write(to_f, buffer, r_from);
+		w_to = write(to_f, buffer, r_from);
+		if (w_to == -1)
+		{
+			free(buffer);
+			exit(99);
+		}
 		r_from = read(from_f, buffer, 1024);
 	} while (r_from > 0);
 
