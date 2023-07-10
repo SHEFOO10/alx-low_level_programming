@@ -58,15 +58,16 @@ int main(int argc, char *argv[])
 	}
 	buffer = create_buffer(argv[2]);
 	from_f = open(argv[1], O_RDONLY);
-	to_f = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	r_from = read(from_f, buffer, 1024);
 
-	if (from_f == -1)
+	if (from_f == -1 || r_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't Read from %s\n", argv[1]);
 		free(buffer);
 		exit(98);
 	}
+
+	to_f = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (to_f == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
