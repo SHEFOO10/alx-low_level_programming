@@ -64,11 +64,13 @@ int main(int argc, char *argv[])
 	if (from_f == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't Read from %s\n", argv[1]);
+		free(buffer);
 		exit(98);
 	}
 	if (to_f == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		free(buffer);
 		exit(99);
 	}
 	do {
