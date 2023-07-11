@@ -1,7 +1,5 @@
-#include <fcntl.h>
+#include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
  * create_buffer - create buffer for the source file.
@@ -18,7 +16,6 @@ char *create_buffer(char *filename)
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read to %s\n", filename);
-		exit(98);
 	}
 	return (buffer);
 }
