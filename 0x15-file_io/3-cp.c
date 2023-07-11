@@ -62,7 +62,8 @@ void check_args(int *a_count)
 int main(int argc, char *argv[])
 {
 	char *buffer;
-	int from_f, to_f, r_from, w_to;
+	int from_f, to_f;
+	ssize_t	r_from, w_to;
 
 	check_args(&argc);
 	buffer = create_buffer(argv[1]);
