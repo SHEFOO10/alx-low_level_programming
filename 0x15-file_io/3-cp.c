@@ -85,6 +85,7 @@ int main(int argc, char *argv[])
 		if (to_f == -1 || w_to == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(from_f);
 			free(buffer);
 			exit(99);
 		}
