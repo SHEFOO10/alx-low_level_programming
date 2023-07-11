@@ -76,6 +76,7 @@ int main(int argc, char *argv[])
 		if (from_f == -1 || r_from == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
+			c_fd(to_f);
 			free(buffer);
 			exit(98);
 		}
@@ -85,7 +86,7 @@ int main(int argc, char *argv[])
 		if (to_f == -1 || w_to == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(from_f);
+			c_fd(from_f);
 			free(buffer);
 			exit(99);
 		}
