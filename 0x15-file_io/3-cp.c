@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
 		if (from_f == -1 || r_from == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			c_fd(to_f);
 			free(buffer);
 			exit(98);
