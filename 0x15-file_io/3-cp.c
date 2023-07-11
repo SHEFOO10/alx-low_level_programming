@@ -1,10 +1,12 @@
-#include "main.h"
+#include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
- * create_buffer - create buffer for the second file.
+ * create_buffer - create buffer for the source file.
  *
- * @filename: name of the file that i would write to.
+ * @filename: name of the file that will be read from.
  *
  * Return: buffer pointer on success, (99) on failure.
  */
@@ -15,8 +17,8 @@ char *create_buffer(char *filename)
 
 	if (buffer == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't read to %s\n", filename);
+		exit(98);
 	}
 	return (buffer);
 }
@@ -24,16 +26,28 @@ char *create_buffer(char *filename)
 /**
  * c_fd - close file.
  *
- * @fd: file discriptor of the file to be closed.
+ * @fd: file descriptor of the file to be closed.
  */
 void c_fd(int fd)
 {
-	int close_fd = close(fd);
-
-	if (close_fd == -1)
+	if (close(fd) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
+	}
+}
+/**
+ * check_args - Check if args match required number of args.
+ *
+ * @a_count: count of args.
+ */
+
+void check_args(int *a_count)
+{
+	if (*a_count != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
 }
 /**
@@ -45,43 +59,35 @@ void c_fd(int fd)
  * Return: (0) on success,
  */
 
-
 int main(int argc, char *argv[])
 {
 	char *buffer;
 	int from_f, to_f, r_from, w_to;
 
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: %s from_file to_file\n", argv[0]);
-		exit(97);
-	}
-	buffer = create_buffer(argv[2]);
+	buffer = create_buffer(argv[1]);
 	from_f = open(argv[1], O_RDONLY);
-	r_from = read(from_f, buffer, 1024);
+	check_args(&argc);
 	to_f = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (to_f == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		free(buffer);
-		exit(99);
-	}
 	do {
+		r_from = read(from_f, buffer, 1024);
+
 		if (from_f == -1 || r_from == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't Read from %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
 
 		w_to = write(to_f, buffer, r_from);
+
 		if (to_f == -1 || w_to == -1)
 		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
-		r_from = read(from_f, buffer, 1024);
+
 	} while (r_from > 0);
 
 	free(buffer);
