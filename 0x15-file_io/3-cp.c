@@ -64,9 +64,10 @@ int main(int argc, char *argv[])
 	char *buffer;
 	int from_f, to_f, r_from, w_to;
 
+	check_args(&argc);
 	buffer = create_buffer(argv[1]);
 	from_f = open(argv[1], O_RDONLY);
-	check_args(&argc);
+
 	to_f = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
