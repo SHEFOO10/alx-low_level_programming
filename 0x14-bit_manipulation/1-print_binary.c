@@ -8,7 +8,7 @@
  * Return: length of the number.
  */
 
-unsigned int Number_length(unsigned int n)
+unsigned int Number_length(unsigned long int n)
 {
 	int len = 0;
 
