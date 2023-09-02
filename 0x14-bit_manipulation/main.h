@@ -2,11 +2,15 @@
 #define MAIN_H
 
 #include <stddef.h>
+#define CHAR_BITS 8 /*size of char*/
+#define INT_BITS (sizeof(unsigned long int) * CHAR_BITS)
 
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);
 int _putchar(char c);
 unsigned int Number_length(unsigned long int n);
 int get_bit(unsigned long int n, unsigned int index);
+int set_bit(unsigned long int *n, unsigned int index);
 
 #endif
+

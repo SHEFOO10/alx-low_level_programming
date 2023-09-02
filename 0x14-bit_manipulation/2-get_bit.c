@@ -1,7 +1,5 @@
 #include "main.h"
 
-#define CHAR_BITS 8 /*size of char*/
-#define INT_BITS (sizeof(unsigned long int) * CHAR_BITS)
 
 /**
  * get_bit - returns the value of a bit at a given index.
