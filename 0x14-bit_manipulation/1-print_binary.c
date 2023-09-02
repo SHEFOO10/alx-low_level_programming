@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * Number_length - get the lenght of the number
+ * Number_length - get the lenght of the number.
  *
  * @n: the number.
  *
@@ -46,3 +46,4 @@ void print_binary(unsigned long int n)
 		mask >>= 1;
 	}
 }
+
