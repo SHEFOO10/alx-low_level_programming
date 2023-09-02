@@ -32,13 +32,12 @@ unsigned int _strlen(const char *str)
 }
 
 /**
- * binary_to_unit = converts a binary to an unsigned int
+ * binary_to_uint - converts a binary to an unsigned int.
  *
  * @b: binary
  *
  * Return: converted number or (0) if b is Null , number is not binary.
  */
-
 
 unsigned int binary_to_uint(const char *b)
 {
@@ -57,6 +56,6 @@ unsigned int binary_to_uint(const char *b)
 
 		result += num * base2;
 		base2 *= 2;
-	}	
+	}
 	return (result);
 }
