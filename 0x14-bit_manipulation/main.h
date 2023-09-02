@@ -6,6 +6,6 @@
 unsigned int binary_to_uint(const char *b);
 void print_binary(unsigned long int n);
 int _putchar(char c);
-unsigned int Number_length(unsigned int n);
+unsigned int Number_length(unsigned long int n);
 
 #endif
