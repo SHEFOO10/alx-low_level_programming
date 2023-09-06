@@ -35,7 +35,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (read_wcount == -1)
 		return (0);
 
-	wordcount = write(STDIN_FILENO, buffer, read_wcount);
+	wordcount = write(STDOUT_FILENO, buffer, read_wcount);
 
 	if (wordcount == -1 || read_wcount != wordcount)
 		return (0);
