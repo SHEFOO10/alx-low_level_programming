@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 		if (wread == -1)
 			custom_exit(98, argv[1]);
 
-		w_wrote = write(dest, &buffer, wread);
+		w_wrote = write(dest, buffer, wread);
 		if (w_wrote == -1)
 			custom_exit(99, argv[2]);
 	} while ((wread = read(src, &buffer, sizeof(buffer))) > 0);
