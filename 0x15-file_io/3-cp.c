@@ -16,27 +16,25 @@ int main(int argc, char **argv)
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		custom_exit(97, NULL);
 
 	src = open(argv[1], O_RDONLY);
-	while ((wread = read(src, &buffer, sizeof(buffer))) > 0)
-	{
-		if (src == -1 || wread == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
-			exit(98);
-		}
-		dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (src == -1)
+		custom_exit(98, argv[1]);
+
+	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (dest == -1)
+		custom_exit(99, argv[2]);
+
+	wread = read(src, &buffer, sizeof(buffer));
+	do {
+		if (wread == -1)
+			custom_exit(98, argv[1]);
+
 		w_wrote = write(dest, &buffer, wread);
-		if (dest == -1 || w_wrote == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
-			exit(99);
-		}
-	}
+		if (w_wrote == -1)
+			custom_exit(99, argv[2]);
+	} while ((wread = read(src, &buffer, sizeof(buffer))) > 0);
 	close_file(&src);
 	close_file(&dest);
 	return (0);
@@ -57,3 +55,26 @@ void close_file(int *fd)
 	}
 }
 
+/**
+ * custom_exit - exit with code and print error message.
+ *
+ * @code: exit code.
+ * @err: error message.
+ *
+ */
+
+void custom_exit(int code, char *err)
+{
+	switch(code)
+	{
+		case 97:
+			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+			exit(97);
+		case 98:
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s", err);
+			exit(98);
+		case 99:
+			dprintf(STDERR_FILENO, "Error: Can't write to %s", err);
+			exit(99);
+	}
+}
