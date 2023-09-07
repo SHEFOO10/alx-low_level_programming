@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	if (dest == -1)
 		custom_exit(99, argv[2]);
 
-	wread = read(src, &buffer, sizeof(buffer));
+	wread = read(src, buffer, sizeof(buffer));
 	do {
 		if (wread == -1)
 			custom_exit(98, argv[1]);
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 		w_wrote = write(dest, buffer, wread);
 		if (w_wrote == -1)
 			custom_exit(99, argv[2]);
-	} while ((wread = read(src, &buffer, sizeof(buffer))) > 0);
+	} while ((wread = read(src, buffer, sizeof(buffer))) > 0);
 	close_file(&src);
 	close_file(&dest);
 	return (0);
