@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	}
 
 	src = open(argv[1], O_RDONLY);
-	while ((wread = read(src, &buffer, BUFFER_SIZE)) > 0)
+	while ((wread = read(src, &buffer, sizeof(buffer))) > 0)
 	{
 		if (src == -1 || wread == -1)
 		{
@@ -55,23 +55,5 @@ void close_file(int *fd)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", *fd);
 		exit(100);
 	}
-}
-
-/**
- * _strlen - calculate length of string.
- *
- * @text: string to calculate it's length.
- *
- * Return: the length or (0).
- */
-
-int _strlen(char *text)
-{
-	int length = 0;
-
-	while (text[length] != '\0')
-		length++;
-	length--;
-	return (length);
 }
 
