@@ -22,20 +22,20 @@ int main(int argc, char **argv)
 	}
 
 	src = open(argv[1], O_RDONLY);
-	wread = read(src, &buffer, BUFFER_SIZE);
-	if (src == -1 || wread == -1)
+	while ((wread = read(src, &buffer, BUFFER_SIZE)) > 0)
 	{
-
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
-		exit(98);
-}
-	dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	w_wrote = write(dest, &buffer, wread);
-	if (dest == -1 || w_wrote == -1)
-	{
-
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
-		exit(99);
+		if (src == -1 || wread == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
+			exit(98);
+		}
+		dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+		w_wrote = write(dest, &buffer, wread);
+		if (dest == -1 || w_wrote == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
+			exit(99);
+		}
 	}
 	close_file(&src);
 	close_file(&dest);
