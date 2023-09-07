@@ -50,7 +50,7 @@ void close_file(int *fd)
 {
 	if (close(*fd) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", *fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *fd);
 		exit(100);
 	}
 }
@@ -71,10 +71,10 @@ void custom_exit(int code, char *err)
 			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 			exit(97);
 		case 98:
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s", err);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", err);
 			exit(98);
 		case 99:
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", err);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", err);
 			exit(99);
 	}
 }
