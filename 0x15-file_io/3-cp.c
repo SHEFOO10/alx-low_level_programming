@@ -65,7 +65,7 @@ void close_file(int *fd)
 
 void custom_exit(int code, char *err)
 {
-	switch(code)
+	switch (code)
 	{
 		case 97:
 			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
