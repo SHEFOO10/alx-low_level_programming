@@ -50,13 +50,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 }
 
+/**
+ * create_node - create node for the linked list in the hash table.
+ *
+ * @key: the key.
+ * @value: the value.
+ *
+ * Return: the node, NULL otherwise
+ */
 
 hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *node = malloc(sizeof(hash_node_t));
 
 	if (node == NULL)
-		return NULL;
+		return (NULL);
 	node->key = strdup(key);
 	if (node->key == NULL)
 	{
