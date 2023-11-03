@@ -10,7 +10,7 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i = 0;
 	int delimetar = 0;
-	hash_node_t *current_node;
+	hash_node_t *current_node = NULL;
 
 	if (!ht)
 		return;
