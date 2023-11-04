@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define unused(parameter) (void)parameter;
 /**
  * struct hash_node_s - Node of a hash table
  *
