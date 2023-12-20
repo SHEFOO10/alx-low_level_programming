@@ -60,7 +60,4 @@ def island_perimeter(grid):
     height = calc_height(only_island)
     only_island = dict(list(only_island.items())[:height])
     width = calc_width(only_island.values())
-
-    print(height)
-    print(width)
     return (height + width) * 2
