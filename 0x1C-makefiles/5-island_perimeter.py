@@ -26,6 +26,7 @@ def calc_width(arrays):
 
 
 def calc_height(island_dict):
+    """ calc height of the island """
     height = 0
     for key in island_dict.keys():
         try:
