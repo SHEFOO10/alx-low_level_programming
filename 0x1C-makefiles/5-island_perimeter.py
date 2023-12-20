@@ -2,16 +2,50 @@
 """ 5. Island Perimeter """
 
 
-def largest_arr(arrays):
-    """ return largest arr """
-
-    largest_arr = []
+def max_arr(arrays):
+    """ return array have values n + 1 """
+    flitered_arrays = []
+    last_iterate_index = 0
+    idx = 0
+    arr_idx = 0
     for arr in arrays:
-        if len(largest_arr) < len(arr):
-            largest_arr = arr
-    return largest_arr
+        idx = 0
+        for index in range(len(arr)):
+            try:
+                if not (arr[index + 1] and arr[index + 1] == arr[index] + 1):
+                    raise KeyError()
+            except (KeyError, IndexError):
+                idx += 1
+                break
+            idx += 1
+        if last_iterate_index < idx:
+            last_iterate_index = idx
+        arr_idx += 1
+    arrays = list(arrays)
+    flitered_arrays = arrays[arr_idx - 1][:last_iterate_index]
+    return len(flitered_arrays)
+
+
+def calc_width(arrays):
+    """ return largest arr """
+    return max_arr(arrays)
+
+
+def calc_height(island_dict):
+    height = 0
+    for key in island_dict.keys():
+        try:
+            if not (island_dict[key + 1]
+                    and (island_dict[key][0] == island_dict[key + 1][0])):
+                raise KeyError("")
+        except KeyError:
+            break
+        height += 1
+    return height + 1
+
 
 def island_perimeter(grid):
+    """ calculate perimeter of island """
     if grid == [] or grid == [[]]:
         return 0
 
@@ -25,22 +59,12 @@ def island_perimeter(grid):
             if grid[row_index][col_index] == 1:
                 values[row_index].append(col_index)
 
-    only_island = {index: value for index, value in values.items() if value != []}
-    for index in only_island.keys():
-       try:
-           if not only_island[index+1] and only_island[index] == only_island[index + 1]:
-               raise KeyError("")
-       except KeyError:
-           only_island = dict(list(only_island.items())[:height + 1])
-           arr = largest_arr(only_island.values())
-           for index in range(len(arr)):
-              try:
-                  if not (arr[index + 1] and (arr[index] + 1 == arr[index + 1])): 
-                     raise KeyError("")
-              except (KeyError, IndexError):
-                  break
-              width += 1
-       height += 1
+    only_island = {index: value
+                   for index, value in values.items()
+                   if value != []}
 
-    return (height + width + 1) * 2
+    height = calc_height(only_island)
+    only_island = dict(list(only_island.items())[:height])
+    width = calc_width(only_island.values())
 
+    return (height + width) * 2
