@@ -2,7 +2,7 @@
 """ 5. Island Perimeter """
 
 
-def max_arr(arrays):
+def calc_width(arrays):
     """ return array have values n + 1 """
     flitered_arrays = []
     last_iterate_index = 0
@@ -23,10 +23,6 @@ def max_arr(arrays):
         arr_idx += 1
 
     return last_iterate_index
-
-def calc_width(arrays):
-    """ return largest arr """
-    return max_arr(arrays)
 
 
 def calc_height(island_dict):
