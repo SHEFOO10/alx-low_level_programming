@@ -21,10 +21,8 @@ def max_arr(arrays):
         if last_iterate_index < idx:
             last_iterate_index = idx
         arr_idx += 1
-    arrays = list(arrays)
-    flitered_arrays = arrays[arr_idx - 1][:last_iterate_index]
-    return len(flitered_arrays)
 
+    return last_iterate_index
 
 def calc_width(arrays):
     """ return largest arr """
@@ -67,4 +65,6 @@ def island_perimeter(grid):
     only_island = dict(list(only_island.items())[:height])
     width = calc_width(only_island.values())
 
+    print(height)
+    print(width)
     return (height + width) * 2
